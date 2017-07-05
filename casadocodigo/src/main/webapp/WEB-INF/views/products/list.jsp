@@ -18,12 +18,12 @@
 			<tr>
 				<td>${product.title}</td>
 				<td>
-				<c:forEach items="${product.prices}" var="price">
-				[${price.value} - ${price.bookType}]
-				</c:forEach></td>
+					<c:forEach items="${product.prices}" var="price">
+						[${price.value} - ${price.bookType}]
+				</c:forEach>
+				</td>
 			</tr>
 		</c:forEach>
-
 	</table>
 </body>
 </html>

@@ -5,12 +5,15 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.validation.constraints.DecimalMin;
 
 @Embeddable
 public class Price {
 
+	@DecimalMin("0.5")
 	@Column(scale = 2 )
 	private BigDecimal value;
+	
 	@Enumerated(EnumType.STRING)
 	private BookType bookType;
 	
