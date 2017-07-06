@@ -12,13 +12,13 @@ import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-
 import br.com.casadocodigo.loja.controllers.HomeController;
+import br.com.casadocodigo.loja.daos.InterfaceDAO;
 import br.com.casadocodigo.loja.daos.ProductDAO;
 import br.com.casadocodigo.loja.infra.FileSaver;
 
 @EnableWebMvc
-@ComponentScan(basePackageClasses = {HomeController.class, ProductDAO.class, FileSaver.class})
+@ComponentScan(basePackageClasses = {HomeController.class, ProductDAO.class, FileSaver.class, InterfaceDAO.class})
 public class AppWebConfiguration {
 	@Bean
 	public InternalResourceViewResolver internalResourceViewResolver(){

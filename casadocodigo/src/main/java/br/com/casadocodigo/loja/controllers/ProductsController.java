@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import br.com.casadocodigo.loja.daos.InterfaceDAO;
 import br.com.casadocodigo.loja.daos.ProductDAO;
 import br.com.casadocodigo.loja.infra.FileSaver;
 import br.com.casadocodigo.loja.models.BookType;
@@ -23,6 +24,9 @@ public class ProductsController {
 	
 	@Autowired
 	private ProductDAO productDAO;
+	
+	@Autowired
+	private InterfaceDAO interfaceDAO;
 	
 	@Autowired
 	private FileSaver fileSaver;
@@ -50,15 +54,14 @@ public class ProductsController {
 		return new ModelAndView("redirect:products");
 	}
 	
-	@Autowired
+	//@Autowired
 	@RequestMapping(method=RequestMethod.GET)
 	public ModelAndView list(){
 		ModelAndView modelAndView = new ModelAndView("products/list");
-		modelAndView.addObject("products", productDAO.list());
+		modelAndView.addObject("products", interfaceDAO.findAll());
 	
 		return modelAndView;
 	}
-	
 
 //	@InitBinder
 //	public void initBinder(WebDataBinder binder){
