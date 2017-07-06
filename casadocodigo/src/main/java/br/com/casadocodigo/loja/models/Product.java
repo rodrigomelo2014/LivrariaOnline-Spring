@@ -1,8 +1,8 @@
 package br.com.casadocodigo.loja.models;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
-
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,8 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
-
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Product {
@@ -28,6 +28,11 @@ public class Product {
 	
 	@Min(1)
 	private int numberOfPages;
+	
+	@DateTimeFormat
+	private Calendar releaseDate;
+	
+	private String summaryPath;
 	
 	@Valid
 	@ElementCollection
@@ -52,9 +57,11 @@ public class Product {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	@Override
-	public String toString() {
-		return "Product [title=" + title + ", description=" + description + ", numberOfPages=" + numberOfPages + "]";
+	public Calendar getReleaseDate() {
+		return releaseDate;
+	}
+	public void setReleaseDate(Calendar releaseDate) {
+		this.releaseDate = releaseDate;
 	}
 	public int getNumberOfPages() {
 		return numberOfPages;
@@ -68,6 +75,15 @@ public class Product {
 	public void setPrices(List<Price> prices) {
 		this.prices = prices;
 	}
-	
+	public String getSummaryPath() {
+		return summaryPath;
+	}
+	public void setSummaryPath(String summaryPath) {
+		this.summaryPath = summaryPath;
+	}
+	@Override
+	public String toString() {
+		return "Product [title=" + title + ", description=" + description + ", numberOfPages=" + numberOfPages + "]";
+	}
 	
 }
