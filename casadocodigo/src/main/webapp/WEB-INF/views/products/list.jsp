@@ -22,6 +22,10 @@
 						[${price.value} - ${price.bookType}]
 				</c:forEach>
 				</td>
+				<td>
+					<c:url value="/products/${product.id}" var="linkDetalhar" />
+					<a href="${linkDetalhar}">Detalhar</a>
+				</td>
 			</tr>
 		</c:forEach>
 	</table>

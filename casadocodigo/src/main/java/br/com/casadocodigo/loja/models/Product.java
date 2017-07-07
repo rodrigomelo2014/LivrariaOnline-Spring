@@ -1,8 +1,10 @@
 package br.com.casadocodigo.loja.models;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
+
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -38,6 +41,14 @@ public class Product {
 	@Valid
 	@ElementCollection(fetch=FetchType.EAGER)
 	private List<Price> prices = new ArrayList<>();
+	
+	public BigDecimal priceFor(BookType bookType){
+		return prices.stream()
+				.filter(price -> price.getBookType().equals(bookType))
+				.map(Price::getValue)
+				.findFirst()
+				.orElse(BigDecimal.ZERO);
+	}
 	
 	
 	public Integer getId() {
