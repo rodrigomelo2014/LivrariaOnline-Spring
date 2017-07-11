@@ -77,7 +77,6 @@ public class ProductsController {
 		modelAndView.addObject("product", interfaceDAO.findOne(id));
 		return modelAndView;
 	}
-	
 
 //	@InitBinder
 //	public void initBinder(WebDataBinder binder){

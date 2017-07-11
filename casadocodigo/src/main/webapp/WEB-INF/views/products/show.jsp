@@ -31,7 +31,9 @@
 
 </head>
 
-<c:url value="/shopping" var="shoppingCartUrl" />
+<%-- <c:url value="/shopping" var="shoppingCartUrl" /> --%>
+<form:form servletRelativeAction="/shopping" method="post" cssClass="container">
+</form:form>
 <body class="product">
 	<header id="layout-header">
 		<div class="clearfix container">
