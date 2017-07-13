@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Home page</title>
+<title>OK</title>
 </head>
-<body> 
-<h1>Hello World</h1>
+<body>
+<h2>Produto cadastrado com sucesso!</h2>
 </body>
 </html>
